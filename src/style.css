@@ -1,0 +1,87 @@
+body {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  margin: 0;
+  background: linear-gradient(135deg, #b80505, #1a1a2e); /* Degradado lineal */
+  color: #ffffff;
+  box-sizing: border-box;
+}
+
+#searchInput {
+  border-radius: 5px;
+  padding: 15px; /* Reducido para que se vea mejor en pantallas pequeñas */
+  width: 100%;
+  max-width: 600px;
+  margin-left: auto; /* Centra el input horizontalmente */
+  margin-right: auto; /* Centra el input horizontalmente */
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center; /* Centra las tarjetas dentro de la galería */
+}
+
+.card {
+  background: rgb(141, 18, 49);
+  border: 2px solid #000000;
+  padding: 15px;
+  width: 200px;
+  position: relative;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+  transition: transform 0.3s ease;
+}
+
+.card.expanded img {
+  transform: scale(1.5);
+}
+
+.extra-info {
+  display: none;
+  margin-top: 10px;
+  text-align: left;
+  font-size: 0.9em;
+  color: #333;
+}
+
+.card.expanded .extra-info {
+  display: block;
+}
+
+/* Media Queries para hacer la página responsiva */
+
+/* Pantallas pequeñas (por ejemplo, móviles) */
+@media (max-width: 600px) {
+  #searchInput {
+    padding: 10px; /* Menos padding en pantallas pequeñas */
+    width: 90%; /* El input ocupa el 90% del ancho */
+  }
+
+  .card {
+    width: 90%; /* Las tarjetas ocuparán más espacio en pantallas pequeñas */
+  }
+
+  .gallery {
+    gap: 10px; /* Reducir el espacio entre las tarjetas */
+  }
+}
+
+/* Pantallas medianas (tabletas) */
+@media (max-width: 900px) {
+  #searchInput {
+    width: 80%; /* En tabletas, el input ocupará el 80% del ancho */
+  }
+
+  .card {
+    width: 250px; /* Las tarjetas serán un poco más grandes */
+  }
+}

@@ -1,3 +1,4 @@
+// Lista de personajes, cada uno con nombre, descripción, casa editorial (Marvel o DC) e imagen.
 const items = [
   {
     nombre: "Superman",
@@ -35,13 +36,16 @@ const items = [
     imagen: "https://i.blogs.es/3da195/batman-ben-affleck/1024_2000.webp"
   }
 ];
-
+// Referencias a elementos del DOM:
+// - Contenedor donde se mostrarán las tarjetas.
+// - Campo de búsqueda para filtrar personajes por nombre
 const gallery = document.getElementById("gallery");
 const searchInput = document.getElementById("searchInput");
 
 function renderItems(filter = "") {
+  // Limpia el contenido actual del contenedor
   gallery.innerHTML = "";
-
+  // Filtra los elementos cuyo nombre contenga el texto ingresado (ignorando mayúsculas/minúsculas)
   items
     .filter(item => item.nombre.toLowerCase().includes(filter.toLowerCase()))
     .forEach((item) => {
@@ -57,6 +61,7 @@ function renderItems(filter = "") {
       gallery.appendChild(card);
     });
 
+     // Agrega funcionalidad al botón "Ver más" para mostrar u ocultar más información
   document.querySelectorAll(".ver-mas").forEach(button => {
     button.addEventListener("click", () => {
       const card = button.parentElement;
@@ -66,8 +71,11 @@ function renderItems(filter = "") {
   });
 }
 
+// Evento que se activa cada vez que el usuario escribe en el campo de búsqueda.
+// Actualiza la galería con los personajes cuyo nombre coincide.
 searchInput.addEventListener("input", () => {
   renderItems(searchInput.value);
 });
 
+// Renderiza todos los personajes al cargar la página por primera vez.
 renderItems();
